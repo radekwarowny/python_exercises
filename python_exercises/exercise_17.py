@@ -1,19 +1,21 @@
-# More User Input of Data
+import random
 
-print("Please enter the following information so I can sell it for a profit!\n")
+num = random.randint(0, 5)
+cookie = ""
 
-firstName = input("First name: ")
-lastName = input("Last name: ")
-grade = input("Grade (9-12): ")
-studentID = input("Student ID: ")
-login = input("Login: ")
-gpa = input("GPA (0.0-4.0): ")
+if (num == 1):
+    cookie = "A beautiful, smart, and loving person will be coming into your life."
+elif (num == 2):
+    cookie = "A dubious friend may be an enemy in camouflage."
+elif (num == 3):
+    cookie = "A faithful friend is a strong defense."
+elif (num == 4):
+    cookie = "A feather in the hand is better than a bird in the air."
+elif (num == 5):
+    cookie = "A fresh start will put you on your way."
 
-print()
+print("Fortune cookie says: " + cookie)
 
-print("Your information: ")
-print("\tLogin:  ", login)
-print("\tID:     ", studentID)
-print("\tName:    {}, {}".format(lastName, firstName))
-print("\tGPA:    ", gpa)
-print("\tGrade:  ", grade)
+for i in range(6):
+    x = random.randint(0, 54)
+    print(x, end=" - ")

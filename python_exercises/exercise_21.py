@@ -1,23 +1,41 @@
-# What If
+# Magic 8 Ball
 
-people = 20
-cats = 30
-dogs = 15
+import random
 
-if(people < cats):
-    print("Too many cats! The world is doomed!")
-if(people > cats):
-    print("Not many cats! The world is saved!")
-if(people < dogs):
-    print("The world is drooled on!")
-if(people > dogs):
-    print("The world is dry!")
+choice = random.randint(0, 15)
+response = ""
 
-dogs += 5
+if (choice == 1):
+    response = "It is certain"
+elif (choice == 2):
+    response = "It is decidedly so"
+elif (choice == 3):
+    response = "Without a doubt"
+elif (choice == 4):
+    response = "Yes - definitely"
+elif (choice == 5):
+    response = "You may relay on it"
+elif (choice == 6):
+    response = "As I see it, yes"
+elif (choice == 7):
+    response = "Most likely"
+elif (choice == 8):
+    response = "Outlook good"
+elif (choice == 9):
+    response = "Signs point to yes"
+elif(choice == 10):
+    response = "Yes"
+elif(choice == 11):
+    response = "Reply hazy, try again"
+elif (choice == 12):
+    response = "Ask again later"
+elif (choice == 13):
+    response = "Better not tell you now"
+elif (choice == 14):
+    response = "Cannot predict now"
+elif (choice == 15):
+    response = "Concentrate and ask again"
+else:
+    response = "8-BALL ERROR!"
 
-if(people >= dogs):
-    print("People are greater than or equal to dogs.")
-if(people <= dogs):
-    print("People are less than or equal to dogs.")
-if(people == dogs):
-    print("People are dogs.")
+print("MAGIC 8-BALL SAYS: " + response)

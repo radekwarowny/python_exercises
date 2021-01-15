@@ -1,8 +1,9 @@
-# The Forgetful Machine
+# Using Variables
 
-word_1 = input("Give me a word!\n")
-word_2 = input("Give me a second world!\n")
-num_1 = int(input("Great, now your favourite number?\n"))
-num_2 = int(input("And your second-favourite number...\n"))
+room = 113
+e = 2.71828
+subject = "Computer Science"
 
-print("Whew! Wasn't that fun?")
+print("This is room #", room)
+print("e is close to", e)
+print("I am learning a bit about", subject)

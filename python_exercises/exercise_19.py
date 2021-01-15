@@ -1,8 +1,8 @@
-# A Dumb Calculator
+# Asking Questions
 
-num_1 = float(input("What is your first number: "))
-num_2 = float(input("What is your second number: "))
-num_3 = float(input("What is your third number: "))
-total = (num_3 + num_2 + num_3) / 2
-print()
-print("({:.2f} + {:.2f} + {:.2f}) / 2 is... {:.2f} ".format(num_1, num_2, num_3, total))
+age = (input("How old are you?\n"))
+height = (input("How tall are you? (inches)\n"))
+weight = (input("How much do you weigh? (pounds)\n"))
+
+
+print("So you're {} old, {} inches tall and {} lbs heavy.".format(age, height, weight))

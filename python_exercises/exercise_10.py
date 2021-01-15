@@ -1,16 +1,19 @@
-# More Variables and Printing
+# More User Input of Data
 
-myName = "Zed A Shaw"
-myAge = 35
-myHeight = 74  # inches
-myWeight = 180  # lbs
-myEyes = "Blue"
-myTeeth = "White"
-myHair = "Brown"
+print("Please enter the following information so I can sell it for a profit!\n")
 
-print("Let's talk about {}".format(myName))
-print("He's {} inches tall.".format(myHeight))
-print("He's {} pounds heavy.".format(myWeight))
-print("Actually, that's not too heavy.")
-print("He's got {} eyes and {} hair.".format(myEyes, myHair))
-print("His teeth are usually {} depending on the coffee".format(myTeeth))
+firstName = input("First name: ")
+lastName = input("Last name: ")
+grade = input("Grade (9-12): ")
+studentID = input("Student ID: ")
+login = input("Login: ")
+gpa = input("GPA (0.0-4.0): ")
+
+print()
+
+print("Your information: ")
+print("\tLogin:  ", login)
+print("\tID:     ", studentID)
+print("\tName:    {}, {}".format(lastName, firstName))
+print("\tGPA:    ", gpa)
+print("\tGrade:  ", grade)

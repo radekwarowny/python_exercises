@@ -1,24 +1,16 @@
-# Else And If
+# One Shot Hi-Lo
 
-people = 30
-cars = 40
-buses = 15
+import random
+number = random.randint(0, 100)
+print("I'm thinking of a number between 1-100. Try to guess it.")
 
-if(cars > people):
-    print("We should take the cars.")
-elif(cars < people):
-    print("We should not take the cars.")
+guess = int(input("> "))
+
+if (guess < number):
+    print("Sorry, you are too low. I was thinking of", number)
+elif (guess > number):
+    print("Sorry, you are too high. I was thinking of", number)
+elif (guess == number):
+    print("You guessed it! What are the odds?!?")
 else:
-    print("We can't decide.")
-
-if(buses > cars):
-    print("That's too many buses.")
-elif(buses < cars):
-    print("maybe we could take the buses.")
-else:
-    print("We still can't decide.")
-
-if(people > buses):
-    print("All right, let's just take the buses.")
-else:
-    print("Fine, let's stay home then.")
+    print("HI-LO Error")

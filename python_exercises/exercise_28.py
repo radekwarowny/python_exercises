@@ -1,49 +1,8 @@
-# Modulus Animation
-import time  # time module lets us use sleep() function
+# The Forgetful Machine
 
-for i in range(80):
-    if(i % 16 == 1):
-        print(" ********       \r")
-        time.sleep(0.2)
-    elif(i % 16 == 2):
-        print("  ********      \r")
-        time.sleep(0.2)
-    elif(i % 16 == 3):
-        print("   ********     \r")
-        time.sleep(0.2)
-    elif(i % 16 == 4):
-        print("    ********    \r")
-        time.sleep(0.2)
-    elif(i % 16 == 5):
-        print("     ********   \r")
-        time.sleep(0.2)
-    elif(i % 16 == 6):
-        print("      ********  \r")
-        time.sleep(0.2)
-    elif(i % 16 == 7):
-        print("       ******** \r")
-        time.sleep(0.2)
-    elif(i % 16 == 8):
-        print("        ********\r")
-        time.sleep(0.2)
-    elif(i % 16 == 9):
-        print("        ********\r")
-        time.sleep(0.2)
-    elif(i % 16 == 10):
-        print("       ******** \r")
-        time.sleep(0.2)
-    elif(i % 16 == 11):
-        print("      ********  \r")
-        time.sleep(0.2)
-    elif(i % 16 == 12):
-        print("     ********   \r")
-        time.sleep(0.2)
-    elif(i % 16 == 13):
-        print("    ********    \r")
-        time.sleep(0.2)
-    elif(i % 16 == 14):
-        print("   ********     \r")
-        time.sleep(0.2)
-    elif(i % 16 == 15):
-        print("  ********      \r")
-        time.sleep(0.2)
+word_1 = input("Give me a word!\n")
+word_2 = input("Give me a second world!\n")
+num_1 = int(input("Great, now your favourite number?\n"))
+num_2 = int(input("And your second-favourite number...\n"))
+
+print("Whew! Wasn't that fun?")

@@ -1,9 +1,12 @@
-# Using Variables
+# Enter Your PIN
 
-room = 113
-e = 2.71828
-subject = "Computer Science"
+pin = 1234
 
-print("This is room #", room)
-print("e is close to", e)
-print("I am learning a bit about", subject)
+print("WELCOME TO THE BANK OF MITCHEL.")
+entry = int(input("ENTER YOUR PIN: "))
+
+while (entry != pin):
+    print("\nINCORRECT PIN. TRY AGAIN.")
+    entry = int(input("ENTER YOUR PIN: "))
+
+print("\nPIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.")

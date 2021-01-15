@@ -1,27 +1,6 @@
-# Gui input
+# Age in Five Years
 
-from tkinter import *
-
-root = Tk()
-
-nameLabel = Label(root, text="What is your name? ")
-nameLabel.pack()
-
-name = Entry(root, width=50)
-name.pack()
-
-ageLabel = Label(root, text="How old are you? ")
-ageLabel.pack()
-
-age = Entry(root, width=50)
-age.pack()
-
-
-answer1 = Label(root, text="Hello, " + name.get() + ".")
-answer1.pack()
-
-answer2 = Label(root, text="So you are " + age.get() + ".")
-answer2.pack()
-
-
-root.mainloop()
+name = input("Hello. What is your name?\n")
+age = int(input("Hi, {}! How old are you?\n".format(name)))
+print("Did you know that in five years you will be {} years old?".format(age+5))
+print("And five years ago you were {}! Imagine that!".format(age-5))
