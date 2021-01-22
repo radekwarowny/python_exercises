@@ -1,6 +1,8 @@
 # python_exercises
 
 Number of python exercises based on 'Programming by Doing' in Java by Graham Mitchell.
+ps. Some exercises come from Advent of Code website
+
 
 # To run:
 
