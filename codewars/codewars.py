@@ -177,3 +177,76 @@ nb_dig(5750, 0)
 nb_dig(11011, 2)
 nb_dig(12224, 8)
 nb_dig(11549, 1)
+
+""" challenge 7
+Tap code is a way to communicate using a series of taps and pauses for each letter. 
+In this kata, we will use dots . for the taps and whitespaces for the pauses.
+The number of taps needed for each letter matches its coordinates in the following polybius square (note the c/k position).
+Then you "tap" the row, a pause, then the column. 
+Each letter is separated from others with a pause too.
+
+   1  2  3  4  5
+1  A  B C\K D  E
+2  F  G  H  I  J
+3  L  M  N  O  P
+4  Q  R  S  T  U
+5  V  W  X  Y  Z
+
+"""
+
+def tap_code_translation(text):
+    import string
+    
+    polybius = """1  2  3  4  5
+    1  A  B C\K D  E
+    2  F  G  H  I  J
+    3  L  M  N  O  P
+    4  Q  R  S  T  U
+    5  V  W  X  Y  Z"""
+    
+    result = ' '
+    
+    alpha = string.ascii_lowercase # alphabet
+    letters = []
+    f_letters = []
+
+    for i in polybius:
+        if i.lower() in alpha:
+            letters.append(i)
+    letters_str = ' '.join(letters) 
+    
+    # removing 'c' and 'k' for 'c/k'
+    letters_str = letters_str.replace('C', '')
+    letters_str = letters_str.replace('K', 'C/K')
+    letters_str = letters_str.replace('  ', ' ')
+
+  
+    foo = letters_str.split(' ')
+
+    n = 1
+    m = 1
+    for i in foo:
+        bar = f"{m} {n} {i}"
+        f_letters.append(bar)
+     
+        n += 1
+        if n > 5:
+            n=1
+            m += 1
+    
+    result = []
+    for i in text:
+        for j in f_letters:
+                for t in j:
+                    if i.upper() in t:
+                        one = int(j[0])
+                        two = int(j[2])
+                        one_dash = f"{'.'*one} "
+                        two_dash = f"{'.'*two} "
+                        result.append(one_dash)
+                        result.append(two_dash)
+                        print('.'*one, '.'*two, end=' ')
+ 
+    result = ''.join(result)
+    print(result[:-1])
+    return result[:-1]
