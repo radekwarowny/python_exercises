@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+
+"""Foobar.py: Description of what foobar does."""
+
+__author__      = "Radek Warowny"
+__email__   = "radekwarownydev@gmail.com"
+
+
 ''' codewars challenges '''
 
 """ challenge 1
@@ -143,3 +151,29 @@ def divided_by(*args):
 four(plus(nine()))
 eight(minus(three()))
 six(divided_by(two()))
+
+""" challenge 6
+Take an integer n (n >= 0) and a digit d (0 <= d <= 9) as an integer. 
+Square all numbers k (0 <= k <= n) between 0 and n. 
+Count the numbers of digits d used in the writing of all the k**2. Call nb_dig (or nbDig or ...) 
+the function taking n and d as parameters and returning this count.
+"""
+
+def nb_dig(n, d):
+    foo = []
+    count = 0
+    for i in range(0, n+1):
+        k = i * i
+        if str(d) in str(k): 
+            foo.append(k)
+            for i in str(k):
+                if i == str(d):
+                    count += 1
+                
+    print("Count", count)
+    return count
+
+nb_dig(5750, 0)
+nb_dig(11011, 2)
+nb_dig(12224, 8)
+nb_dig(11549, 1)
