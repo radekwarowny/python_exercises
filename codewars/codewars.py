@@ -1,12 +1,93 @@
 #!/usr/bin/env python
 
-"""Foobar.py: Description of what foobar does."""
+"""codewars.py: Results of Codewars katas."""
 
 __author__      = "Radek Warowny"
 __email__   = "radekwarownydev@gmail.com"
 
-
 ''' codewars challenges '''
+
+# Classes
+""" challenge 1
+Define a method/function that removes from a given array of integers all the values contained in a second array.
+"""
+
+class List:
+    def remove_(self, integer_list, values_list):
+        result = []
+        for i in integer_list:
+            if i in values_list:
+                pass
+            else:
+                result.append(i)
+        return result
+    
+l = List()
+integer_list = [1, 1, 2 ,3 ,1 ,2 ,3 ,4, 4, 3 ,5, 6, 7, 2, 8]
+values_list  = [1, 3, 4, 2]
+l.remove_(integer_list, values_list)
+
+""" challenge 2
+We need a method in the List Class that may count specific digits from a given list of integers. 
+This marked digits will be given in a second list. 
+The method .count_spec_digits()/.countSpecDigits() will accept two arguments, 
+a list of an uncertain amount of integers integers_lists/integersLists (and of an uncertain amount of digits, too) and a second list, 
+digits_list/digitsList that has the specific digits to count which length cannot be be longer than 10 (It's obvious, 
+we've got ten digits). 
+The method will output a list of tuples, each tuple having two elements, the first one will be a digit to count, 
+and second one, its corresponding total frequency in all the integers of the first list. 
+This list of tuples should be ordered with the same order that the digits have in digitsList
+"""
+
+class List(object):
+    def count_spec_digits(self, integers_list, digits_list):
+        result = []
+        str_ints = [] # ints broken down to string of digits
+        n = 0
+        while n < len(integers_list):
+            str_int = str(integers_list[n])
+            for i in str_int:
+                str_ints.append(i)
+            n += 1
+        
+        for i in digits_list:
+            dig_count = str_ints.count(str(i))
+            result.append((i,dig_count))
+        return result
+    
+l = List()
+
+integers_list =  [1, 1, 2 ,3 ,1 ,2 ,3 ,4]
+digits_list = [1, 3]
+l.count_spec_digits(integers_list, digits_list)
+
+
+""" challenge 3
+The following code was thought to be working properly, 
+however when the code tries to access the age of the person instance it fails.
+
+person = Person('Yukihiro', 'Matsumoto', 47)
+print(person.full_name)
+print(person.age)
+
+For this exercise you need to fix the code so that it works correctly.
+"""
+
+class Person():
+
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.full_name = f"{first_name} {last_name}"
+
+person = Person('Yukihiro', 'Matsumoto', 47)
+print(person.full_name)
+print(person.age)
+
+
+
+# Algorithms
 
 """ challenge 1
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
