@@ -271,6 +271,61 @@ cipher.decode("key") # "abc");
 cipher.decode("vxz") # "xyz");
 
 
+""" challenge 7
+
+Professor Oak has just begun learning Python and he wants to program his new Pokedex prototype with it.
+For a starting point, he wants to instantiate each scanned Pokemon as an object that is stored at Pokedex's memory. 
+He needs your help!
+
+Your task is to:
+Create a PokeScan class that takes in 3 arguments: name, level and pkmntype.
+Create a info method for this class that returns some comments about the Pokemon, 
+specifying it's name, an observation about the pkmntype and other about the level.
+Keep in mind that he has in his possession just three Pokemons for you to test the scanning function: Squirtle, 
+Charmander and Bulbasaur, of pkmntypes water, fire and grass, respectively.
+The info method shall return a string like this: Charmander, a fiery and strong Pokemon.
+If the Pokemon level is less than or equal to 20, it's a weak Pokemon. 
+If greater than 20 and less than or equal to 50, it's a fair one. If greater than 50, it's a strong Pokemon.
+For the pkmntypes, the observations are wet, fiery and grassy Pokemon, according to each Pokemon type.
+"""
+
+class PokeScan:
+    def __init__(self, name, level, pkmntype):
+        self.name = name
+        self.level = level
+        self.pkmntype = pkmntype
+
+    def info(self):
+        # Power level
+        if self.level <= 20:
+            level = "weak"
+        elif self.level > 20 <= 50:
+            level = "fair"
+        elif self.level > 50:
+            level = "strong"
+        else:
+            level = "difficult to define."
+
+        # Level
+        if self.pkmntype == "water":
+            pkmntype = "wet"
+        elif self.pkmntype == "fire":
+            pkmntype = "fiery"
+        elif self.pkmntype == "grass":
+            pkmntype = "grassy"
+
+        print(f"{self.name}, a {pkmntype} and {level} Pokemon.")
+        return f"{self.name}, a {pkmntype} and {level} Pokemon."
+
+
+
+PokeScan('Squirtle', 0, 'water').info()
+PokeScan('Squirtle', 21, 'water').info() # 'Squirtle, a wet and fair Pokemon.')
+PokeScan('Squirtle', 50, 'water').info() # 'Squirtle, a wet and fair Pokemon.')
+PokeScan('Squirtle', 51, 'water').info() # 'Squirtle, a wet and strong Pokemon.')
+PokeScan('Squirtle', 100, 'water').info() # 'Squirtle, a wet and strong Pokemon.')
+
+
 
 # Algorithms
 
