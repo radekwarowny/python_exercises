@@ -30,6 +30,20 @@ def find_two_entries(foo):
             print("{} * {} = {}".format(x, y, (x * y)))
             break
         n += 1
+        
+        
+        
+"""Refactored code 12/04/2021"""
+def find_two_entries_refactored(data):
+    data_split = data.split() # split string
+    n = 0
+    while n < len(data_split):  
+        for i in data_split:  # check i agains nth element
+            if (int(i) + int(data_split[n])) == 2020:
+                print(f"{i} * {data_split[n]} = {int(i) * int(data_split[n])}")
+            else:
+                pass
+        n += 1
 
 
 data = """1511
@@ -235,5 +249,6 @@ data = """1511
 """
 
 find_two_entries(data)
+find_two_entries_refactored(data)
 
 
