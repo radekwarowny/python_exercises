@@ -34,6 +34,23 @@ def find_three_entries(foo):
                 pass
 
         n += 1
+        
+# refactored on 12/04/2020
+def find_three_entries_refactored(data):
+    data_split = data.split()
+    
+    n = 0
+    sorted_entries = sorted(data_split)
+    while n < len(sorted_entries):
+        for i in sorted_entries:
+            x = int(sorted_entries[n])
+            y = int(i)
+            z = 2020 - x - y
+            if str(z) in sorted_entries:
+                print(f"{x} * {y} * {z} = {x*y*z}")
+                break
+        n += 1
+
 
 
 data = """1511
@@ -238,4 +255,5 @@ data = """1511
 1901
 """
 
-find_three_entries(data)
+find_three_entries(data) # 503, 550, 967 (267520550)
+find_three_entries_refactored(data) # 503, 550, 967 (267520550)
