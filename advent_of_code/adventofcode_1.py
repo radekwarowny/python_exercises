@@ -248,7 +248,7 @@ data = """1511
 1901
 """
 
-find_two_entries(data)
-find_two_entries_refactored(data)
+find_two_entries(data) # 494475
+find_two_entries_refactored(data) # 494475
 
 
