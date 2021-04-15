@@ -371,7 +371,154 @@ print(issubclass(Manager, Developer)) # false
 # print(help(Developer)) # help method shows how attributes and methods are inherited
 
 
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[118]:
+
+
+class Employee:
+    
+    raise_amt = 1.04
+    
+    def __init__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.email = first.lower() + '.' + last.lower() + '@company.com'
+        self.pay = pay
+        
+    def fullname(self):
+        return "{} {}".format(self.first, self.last)
+    
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amt)
+        
+    def __repr__(self):
+        return "Employee({}, {}, {})".format(self.first, self.last, self.pay)
+    
+    def __str__(self):
+        return '{} - {}'.format(self.fullname(), self.email)
+
+
+# In[119]:
+
+
+emp_1 = Employee('Radek', 'Warowny', 50000) 
+
+
+# In[120]:
+
+
+emp_1.__repr__()
+
+
+# In[121]:
+
+
+emp_1.__str__()
+
+
+# In[122]:
+
+
+class Developer(Employee):
+    
+    raise_amt = 1.10
+    
+    def __init__(self, first, last, pay, prog_lang):
+        super().__init__(first, last, pay)
+        self.prog_lang = prog_lang
+        
+    def __repr__(self):
+        return "Developer({}, {}, {}, {})".format(self.first, self.last, self.pay, self.prog_lang)
+
+
+# In[123]:
+
+
+dev_1 = Developer('Tina', 'Reid', 50000, 'Python')
+
+
+# In[124]:
+
+
+dev_1.email
+
+
+# In[125]:
+
+
+dev_1.__repr__()
+
+
+# In[126]:
+
+
+dev_1.__str__()
+
+
+# In[133]:
+
+
+class Manager(Employee):
+    
+    def __init__(self, first, last, pay, employees=None):
+        super().__init__(first, last, pay)
+        
+        if employees is None:
+            self.employees = []
+        else: 
+            self.employees = employees
+            
+    def add_emp(self, emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+            
+    def remove_emp(self, emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+            
+    def print_emps(self):
+        for emp in self.employees:
+            print('--> {}'.format(emp.fullname()))
+            
+    def __repr__(self):
+        return 'Manager({}, {}, {}, {})'.format(self.first, self.last, self.pay, self.employees)
+    
+    def __str__(self):
+        return '{} - {} - {}'.format(self.fullname(), self.email, self.employees)
+            
+
+
+# In[134]:
+
+
+mgr_1 = Manager('Sue', 'Smith', 80000, [dev_1])
+
+
+# In[135]:
+
+
+mgr_1.email
+
+
+# In[136]:
+
+
+print(mgr_1.__repr__())
+
+
+# In[137]:
+
+
+print(mgr_1.__str__())
+
+
 # In[ ]:
+
+
+
+
 
 
 
