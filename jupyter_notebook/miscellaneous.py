@@ -516,6 +516,92 @@ print(mgr_1.__str__())
 
 # In[ ]:
 
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[156]:
+
+
+class Manager(Employee):
+    
+    def __init__(self, first, last, pay, employees=None):
+        super().__init__(first, last, pay)
+        
+        if employees is None:
+            self.employees = []
+        else: 
+            self.employees = employees
+            
+    def add_emp(self, emp):
+        if emp not in self.employees:
+            self.employees.append(emp)
+            
+    def remove_emp(self, emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+            
+    def print_emps(self):
+        for emp in self.employees:
+            print('--> {}'.format(emp.fullname()))
+            
+    def __repr__(self):
+        return 'Manager({}, {}, {}, {})'.format(self.first, self.last, self.pay, self.employees)
+    
+    def __str__(self):
+        return '{} - {} - {}'.format(self.fullname(), self.email, self.employees)
+    
+    def __add__(self, other):
+        return self.pay + other.pay
+    
+    def __len__(self):
+        return len(self.fullname())
+            
+
+
+# In[157]:
+
+
+mgr_1 = Manager('Sue', 'Smith', 80000, [dev_1])
+
+
+# In[158]:
+
+
+mgr_2 = Manager('John', 'Smith', 76000)
+
+
+# In[159]:
+
+
+mgr_1.email
+
+
+# In[160]:
+
+
+print(mgr_1.__repr__())
+
+
+# In[161]:
+
+
+print(mgr_1.__str__())
+
+
+# In[162]:
+
+
+print(mgr_1 + mgr_2)
+
+
+# In[163]:
+
+
+print(len(mgr_2))
+
+
+# In[ ]:
+
 
 
 
