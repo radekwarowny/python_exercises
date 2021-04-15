@@ -273,5 +273,109 @@ Employee.is_weekday(my_date)
 
 # In[ ]:
 
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[11]:
+
+
+class Employee:
+    
+    raise_amount = 1.04
+    
+    def __init__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        self.email = first + '.' + last + '@company.com'
+        self.pay = pay
+        
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+    
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amount)
+        
+emp_1 = Employee('Radek', 'Warowny', 50000)
+emp_2 = Employee('Tina', 'Reid', 60000)
+
+print(emp_1.email)
+print(emp_2.email)
+
+
+# In[29]:
+
+
+class Developer(Employee): # Developer class inherits from Employee class
+    raise_amount = 1.10 # changing attribute only for Developer class
+    
+    def __init__(self, first, last, pay, prog_lang):
+        super().__init__(first, last, pay)
+        self.prog_lang = prog_lang
+        
+class Manager(Employee):
+    
+    def __init__(self, first, last, pay, employees=None):
+        super().__init__(first, last, pay)
+        if employees is None: 
+            self.employees = []
+        else:
+            self.employees = employees
+            
+    def add_emp(self, emp):
+        if emp not in self.employees: 
+            self.employees.append(emp)
+            
+    def remove_emp(self, emp):
+        if emp in self.employees:
+            self.employees.remove(emp)
+            
+    def print_emps(self):
+        for emp in self.employees:
+            print('--> ' + emp.fullname())
+
+dev_1 = Developer('Connor', 'Heckley', 30000, 'Python')
+dev_2 = Developer('Darren', 'Brown', 39000, 'Java')
+
+print(dev_1.email) # attributes inherited from Employee class
+print(dev_2.email)
+print()
+print(dev_1.pay)
+print(dev_2.pay)
+dev_1.apply_raise()
+dev_2.apply_raise()
+print()
+print("Pay after raise: {}".format(dev_1.pay))
+print("Pay after raise: {}".format(dev_2.pay))
+print()
+print(dev_1.email)
+print(dev_1.prog_lang)
+
+mgr_1 = Manager('Sue', 'Smith', 90000, [dev_1])
+print(mgr_1.email)
+print(mgr_1.print_emps())
+mgr_1.add_emp(dev_2)
+print(mgr_1.print_emps())
+mgr_1.remove_emp(dev_1)
+print(mgr_1.print_emps())
+
+print(isinstance(mgr_1, Manager)) # true
+print(isinstance(mgr_1, Employee)) # true
+print(isinstance(mgr_1, Developer)) # false
+print(issubclass(Developer, Employee)) # true
+print(issubclass(Manager, Developer)) # false
+
+
+# In[6]:
+
+
+# print(help(Developer)) # help method shows how attributes and methods are inherited
+
+
+# In[ ]:
+
+
+
+
+
 
 
