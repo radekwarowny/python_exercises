@@ -603,6 +603,111 @@ print(len(mgr_2))
 # In[ ]:
 
 
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[170]:
+
+
+class Employee:
+    
+    raise_amt = 1.04
+    
+    def __init__(self, first, last, pay):
+        self.first = first
+        self.last = last
+        #self.email = first + '.' + last + '@company.com'
+        self.pay = pay
+        
+    @property    
+    def email(self):
+        return '{}.{}@company.com'.format(self.first, self.last)
+        
+    @property
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+    
+    @fullname.setter
+    def fullname(self, name):
+        first, last = name.split(' ')
+        self.first = first
+        self.last = last
+        
+    @fullname.deleter
+    def fullname(self):
+        print('Delete Name!')
+        self.first = None
+        self.last = None
+    
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amt)
+        
+
+
+# In[171]:
+
+
+emp_1 = Employee('Radek', 'Warowny', 50000)
+
+
+# In[172]:
+
+
+#emp_1.fullname()
+
+
+# In[173]:
+
+
+emp_1.email
+
+
+# In[174]:
+
+
+emp_1.first = 'Tina'
+
+
+# In[175]:
+
+
+emp_1.fullname
+
+
+# In[176]:
+
+
+emp_1.email
+
+
+# In[177]:
+
+
+emp_1.fullname = 'Connor Heckley'
+
+
+# In[178]:
+
+
+emp_1.email
+
+
+# In[179]:
+
+
+del emp_1.fullname
+
+
+# In[180]:
+
+
+emp_1.email
+
+
+# In[ ]:
+
+
+
 
 
 
