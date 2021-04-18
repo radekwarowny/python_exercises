@@ -790,6 +790,86 @@ display_info('Radek', 33)
 
 # In[ ]:
 
+# In[67]:
+
+
+def my_logger(orig_function):
+    import logging
+    logging.basicConfig(filename='{}.log'.format(orig_function.__name__), level=logging.INFO)
+    
+    def wrapper(*args, **kwargs):
+        logging.info(
+        'Ran with args: {}, and kwargs: {}'.format(args, kwargs))
+        return orig_function(*args, *kwargs)
+    return wrapper
+
+
+# In[68]:
+
+
+@my_logger
+def display():
+    print('display func ran')
+
+
+# In[73]:
+
+
+display()
+
+
+# In[74]:
+
+
+@my_logger
+def display_info(name, age):
+    print('Your name is {} and you are {} years old'.format(name, age))
+
+
+# In[75]:
+
+
+display_info('Radek', 33)
+
+
+# In[5]:
+
+
+def my_timer(orig_function):
+    import time
+    
+    def wrapper(*args, **kwargs):
+        t1 = time.time()
+        result = orig_function(*args, **kwargs)
+        t2 = time.time() - t1
+        print('{} ran in: {} sec'.format(orig_function.__name__, t2))
+    
+    return wrapper
+
+
+# In[6]:
+
+
+import time
+
+
+# In[7]:
+
+
+@my_timer
+def display_info(name, age):
+    time.sleep(1)
+    print('display_info ran with arguments ({}, {})'.format(name, age))
+
+
+# In[8]:
+
+
+display_info('radek', 33)
+
+
+# In[ ]:
+
 
 
 
