@@ -870,6 +870,121 @@ display_info('radek', 33)
 
 # In[ ]:
 
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Sample Headline
+# 
+# *Note: This text will be italicized.*
+# 
+# ## Another Headline(H2)
+# 
+# This is a normal paragraph. Now for some Lorem Ipsum. 
+# 
+# Basic formatting of *italics* and **bold** is supported. This *can be **nested** like* so.
+# 
+# ### What this notebook shows 
+# 
+# 1. How to get started with notebooks
+# 2. How to execute code
+# 3. How to add markdown
+# 4. And... other stuff
+
+# In[1]:
+
+
+def simple_function():
+    print('Radek is awesome!')
+
+
+# In[2]:
+
+
+simple_function()
+
+
+# In[4]:
+
+
+get_ipython().system('pip3 list')
+
+
+# In[5]:
+
+
+get_ipython().run_line_magic('lsmagic', '')
+
+
+# In[6]:
+
+
+get_ipython().run_line_magic('pwd', '')
+
+
+# In[7]:
+
+
+get_ipython().run_line_magic('ls', '')
+
+
+# In[8]:
+
+
+get_ipython().run_line_magic('ls', '-la')
+
+
+# In[9]:
+
+
+get_ipython().run_line_magic('matplotlib', 'inline')
+
+
+# In[11]:
+
+
+"""
+Simple demo of a scatter plot.
+"""
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = 50
+x = np.random.rand(N)
+y = np.random.rand(N)
+colors = np.random.rand(N)
+area = np.pi * (15 * np.random.rand(N))**2
+plt.scatter(x,y,s=area, c=colors, alpha=0.5)
+plt.show()
+
+
+# In[12]:
+
+
+get_ipython().run_cell_magic('HTML', '', '<iframe width="560" height="315" src="https://www.youtube.com/embed/r3ZftAKxOmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+
+
+# In[13]:
+
+
+get_ipython().run_cell_magic('timeit', '', 'square_evens = [n*n for n in range(1000)]')
+
+
+# In[15]:
+
+
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame(np.random.randn(10, 5))
+df.head()
+
+
+# In[ ]:
+
+
+
+
+
 
 
 
