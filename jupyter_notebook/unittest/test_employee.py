@@ -52,15 +52,16 @@ class TestEmployee(unittest.TestCase):
 			mocked_get.return_value.ok = True
 			mocked_get.return_value.text = 'Success'
 
-			schedule = self.emp_1.test_monthly_schedule('May')
+			schedule = self.emp_1.monthly_schedule('May')
 			mocked_get.assert_called_with('http://company.com/Warowny/May')
 			self.assertEqual(schedule, 'Success')
 
 			mocked_get.return_value.ok = False
 
-			schedule = self.emp_2.test_monthly_schedule('June')
-			mocked_get.assert_called_with('http://company.com/Warowny/May')
+			schedule = self.emp_2.monthly_schedule('June')
+			mocked_get.assert_called_with('http://company.com/Reid/June')
 			self.assertEqual(schedule, 'Bad Response!')
+
 
 
 
