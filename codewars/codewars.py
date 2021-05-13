@@ -192,3 +192,43 @@ domain_name("http://google.com") # "google"
 domain_name("http://google.co.jp") # "google"
 domain_name("www.xakep.ru") # "xakep"
 domain_name("https://youtube.com") # "youtube"    
+
+""" challenge 6
+Complete function saleHotdogs/SaleHotDogs/sale_hotdogs, 
+function accept 1 parameters:n, n is the number of customers to buy hotdogs, 
+different numbers have different prices (refer to the following table), 
+return a number that the customer need to pay how much money.
+
++---------------+-------------+
+|  numbers n    | price(cents)|
++---------------+-------------+
+|n<5            |    100      |
++---------------+-------------+
+|n>=5 and n<10  |     95      |
++---------------+-------------+
+|n>=10          |     90      |
++---------------+-------------+
+
+"""
+
+def sale_hotdogs(n):
+    if n < 5:
+        return n * 100
+    elif n >= 5 and n<10:
+        return n * 95
+    elif n >= 10:
+        return n * 90
+    else:
+        'Invalid Input'
+        
+
+sale_hotdogs(0) # ,0)
+sale_hotdogs(1) #,100)
+sale_hotdogs(2) #,200)
+sale_hotdogs(3) #,300)
+sale_hotdogs(4) #,400)
+sale_hotdogs(5) #,475)
+sale_hotdogs(9) #,855)
+sale_hotdogs(10) #,900)
+sale_hotdogs(11) #,990)
+sale_hotdogs(100) #,9000)
